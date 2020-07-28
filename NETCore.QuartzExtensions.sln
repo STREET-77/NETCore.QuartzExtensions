@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCore.QuartzExtensions", "src\NETCore.QuartzExtensions\NETCore.QuartzExtensions.csproj", "{D42B4DD4-0E47-45C2-9358-20536AAEF181}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCore.QuartzExtensions.Tests", "test\NETCore.QuartzExtensions.Tests\NETCore.QuartzExtensions.Tests.csproj", "{EE2657F7-29B9-4450-AC78-757735E819A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D42B4DD4-0E47-45C2-9358-20536AAEF181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D42B4DD4-0E47-45C2-9358-20536AAEF181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D42B4DD4-0E47-45C2-9358-20536AAEF181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D42B4DD4-0E47-45C2-9358-20536AAEF181}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE2657F7-29B9-4450-AC78-757735E819A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE2657F7-29B9-4450-AC78-757735E819A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE2657F7-29B9-4450-AC78-757735E819A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE2657F7-29B9-4450-AC78-757735E819A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1BC435D1-A55D-4C9D-BC80-9ACF69979521}
+	EndGlobalSection
+EndGlobal

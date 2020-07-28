@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<job-scheduling-data xmlns="http://quartznet.sourceforge.net/JobSchedulingData"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 				version="2.0">
+
+	<processing-directives>
+		<overwrite-existing-data>true</overwrite-existing-data>
+	</processing-directives>
+
+	<schedule>
+
+		<job>
+			<name>jobName1</name>
+			<group>jobGroup1</group>
+			<description>job description</description>
+			<job-type>NETCore.QuartzExtensions.Tests.TestJob, NETCore.QuartzExtensions.Tests</job-type>
+			<durable>true</durable>
+			<recover>false</recover>
+		</job>
+
+		<job>
+			<name>jobName2</name>
+			<group>jobGroup1</group>
+			<description>job description</description>
+			<job-type>NETCore.QuartzExtensions.Tests.TestJob2, NETCore.QuartzExtensions.Tests</job-type>
+			<durable>true</durable>
+			<recover>false</recover>
+		</job>
+
+		<trigger>
+
+			<simple>
+				<name>simpleName</name>
+				<group>simpleGroup</group>
+				<description>SimpleTriggerDescription</description>
+				<job-name>jobName1</job-name>
+				<job-group>jobGroup1</job-group>
+				<start-time>1982-06-28T18:15:00.0Z</start-time>
+				<misfire-instruction>SmartPolicy</misfire-instruction>
+				<repeat-count>-1</repeat-count>
+				<repeat-interval>5000</repeat-interval>
+			</simple>
+
+		</trigger>
+
+		<trigger>
+
+			<cron>
+				<name>cronName</name>
+				<group>cronGroup</group>
+				<job-name>jobName2</job-name>
+				<job-group>jobGroup1</job-group>
+				<start-time>2020-07-16T16:20:00+08:00</start-time>
+				<cron-expression>0/10 * * * * ?</cron-expression>
+			</cron>
+
+		</trigger>
+
+	</schedule>
+
+</job-scheduling-data>
