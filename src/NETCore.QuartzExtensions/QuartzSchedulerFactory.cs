@@ -1,11 +1,10 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Spi;
 using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,12 +12,16 @@ namespace NETCore.QuartzExtensions
 {
     public class QuartzSchedulerFactory
     {
+        private readonly ILogger _logger;
         private readonly IJobFactory _jobFactory;
         private readonly QuartzOptions _options;
         private IScheduler _scheduler;
 
-        public QuartzSchedulerFactory(IJobFactory jobFactory, IOptions<QuartzOptions> options)
+        public QuartzSchedulerFactory(ILogger<QuartzSchedulerFactory> logger
+            , IJobFactory jobFactory
+            , IOptions<QuartzOptions> options)
         {
+            _logger = logger;
             _jobFactory = jobFactory;
             if (options != null)
                 _options = options.Value;
@@ -49,11 +52,18 @@ namespace NETCore.QuartzExtensions
 
         public async Task StartAsync(CancellationToken cancellationToken = default)
         {
-            _scheduler = await StdSchedulerFactory.GetScheduler();
-            // 设置IJob实现类的获取方式（DI）
-            _scheduler.JobFactory = _jobFactory;
+            try
+            {
+                _scheduler = await StdSchedulerFactory.GetScheduler();
+                // 设置IJob实现类的获取方式（DI）
+                _scheduler.JobFactory = _jobFactory;
 
-            await _scheduler.Start(cancellationToken);
+                await _scheduler.Start(cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message, ex);
+            }
         }
 
         public async Task Shutdown(CancellationToken cancellationToken = default)

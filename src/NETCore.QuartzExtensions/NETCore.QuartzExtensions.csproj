@@ -2,12 +2,26 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageId>NETCore.QuartzExtensions</PackageId>
+    <PackageVersion>1.0.0.0</PackageVersion>
+    <Authors>STREET-77</Authors>
+    <Copyright>STREET-77</Copyright>
+    <NeutralLanguage>zh</NeutralLanguage>
+    <Owners>STREET-77</Owners>
+    <PackageProjectUrl>https://github.com/STREET-77/NETCore.QuartzExtensions</PackageProjectUrl>
+    <Title>NETCore.QuartzExtensions</Title>
+    <Description>实现QuartzNet单机XML的NetCore封装，目的是能够让QuartzNet在NetCore环境拿来就用。数据库持久化方式（集群）请参考[QuartzNet](https://github.com/quartznet/quartznet/tree/master/database/tables)。</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.6" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.1.6" />
     <PackageReference Include="Quartz.Plugins" Version="3.1.0" />
+    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
